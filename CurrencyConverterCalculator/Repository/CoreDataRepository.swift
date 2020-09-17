@@ -36,8 +36,8 @@ class CoreDataRepository {
         
         do {
             currencies = try self.persistentContainer.viewContext.fetch(currencyRequest)
-        } catch let error as NSError {
-            print(error)
+        } catch {
+            
         }
         
         // initial run
@@ -65,7 +65,7 @@ class CoreDataRepository {
             try self.persistentContainer.viewContext.save()
             return temCurrency
         } catch {
-            print(error)
+            
             return nil
         }
     }
@@ -81,7 +81,7 @@ class CoreDataRepository {
                 update()
             }
         } catch {
-            print(error)
+            
         }
     }
     
@@ -98,7 +98,7 @@ class CoreDataRepository {
                 let jsonData = try JSONDecoder().decode(ResponseData.self, from: data)
                 return jsonData.currencies
             } catch {
-                print("error:\(error)")
+                
             }
         }
         return nil
@@ -108,7 +108,7 @@ class CoreDataRepository {
         do {
             try self.persistentContainer.viewContext.save()
         } catch {
-            print(error)
+            
         }
     }
 }

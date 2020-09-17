@@ -96,10 +96,8 @@ final class CalculatorViewModel: ObservableObject, CalculatorEvent {
     func fetchRates() {
         data.cancelable = data.apiRepository.getRatesByBase(base: state.baseCurrency.stringValue)
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: {
-                if case let .failure(error) = $0 {
-                    print(error)
-                }
+            .sink(receiveCompletion: { _ in
+                
             }, receiveValue: {
                 self.data.rates = $0.rates
                 self.updateList()

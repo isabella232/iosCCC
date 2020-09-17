@@ -1,5 +1,5 @@
 //
-//  CCCApp.swift
+//  App.swift
 //  CurrencyConverterCalculator
 //
 //  Created by Mustafa Ozhan on 26/07/2020.
@@ -7,25 +7,28 @@
 //
 
 import SwiftUI
-import CoreData
+
 
 @main
-struct CCCApp: App {
+struct App: SwiftUI.App {
     
-    @StateObject var vm = AppViewModel()
+    // MARK: - Property - App
+    
+    @StateObject var viewModel = AppViewModel()
+    
+    
+    // MARK: - Property - Scene
     
     var body: some Scene {
         WindowGroup {
-            
-            if vm.state.isFirstRun {
+            if viewModel.state.isFirstRun {
                 CurrenciesView(
-                    baseCurrency: $vm.state.baseCurrency,
-                    isFirstRun: $vm.state.isFirstRun
+                    baseCurrency: $viewModel.state.baseCurrency,
+                    isFirstRun: $viewModel.state.isFirstRun
                 )
             } else {
                 CalculatorView()
             }
-            
         }
     }
 }
