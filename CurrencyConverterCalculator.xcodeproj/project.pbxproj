@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101D16B02513A5A90031908B /* Trace in Frameworks */ = {isa = PBXBuildFile; productRef = 101D16AF2513A5A90031908B /* Trace */; };
 		5C09A4D024D30BA10043038E /* UserDefaulltsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C09A4CF24D30BA10043038E /* UserDefaulltsRepository.swift */; };
 		5C157A6D2306FACA0088E712 /* BarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C157A6C2306FACA0088E712 /* BarItemView.swift */; };
 		5C1B716C24D3433C00DDA8A3 /* CurrenciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B716B24D3433C00DDA8A3 /* CurrenciesViewModel.swift */; };
@@ -86,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101D16B02513A5A90031908B /* Trace in Frameworks */,
 				5C4EE4A722FF62AD000B898E /* Expression in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +274,7 @@
 			name = CurrencyConverterCalculator;
 			packageProductDependencies = (
 				5C4EE4A622FF62AD000B898E /* Expression */,
+				101D16AF2513A5A90031908B /* Trace */,
 			);
 			productName = CurrencyConverterCalculator;
 			productReference = 5C34764822F71C56007F9694 /* CurrencyConverterCalculator.app */;
@@ -303,6 +306,7 @@
 			mainGroup = 5C34763F22F71C56007F9694;
 			packageReferences = (
 				5C4EE4A522FF62AD000B898E /* XCRemoteSwiftPackageReference "Expression" */,
+				101D16AE2513A5A90031908B /* XCRemoteSwiftPackageReference "trace-cocoa-sdk" */,
 			);
 			productRefGroup = 5C34764922F71C56007F9694 /* Products */;
 			projectDirPath = "";
@@ -497,6 +501,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l",
+					z,
+					"-l",
+					"c++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.mustafaozhan.CurrencyConverterCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -518,6 +529,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l",
+					z,
+					"-l",
+					"c++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.mustafaozhan.CurrencyConverterCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -549,6 +567,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		101D16AE2513A5A90031908B /* XCRemoteSwiftPackageReference "trace-cocoa-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bitrise-io/trace-cocoa-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
 		5C4EE4A522FF62AD000B898E /* XCRemoteSwiftPackageReference "Expression" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nicklockwood/Expression.git";
@@ -560,6 +586,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		101D16AF2513A5A90031908B /* Trace */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 101D16AE2513A5A90031908B /* XCRemoteSwiftPackageReference "trace-cocoa-sdk" */;
+			productName = Trace;
+		};
 		5C4EE4A622FF62AD000B898E /* Expression */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5C4EE4A522FF62AD000B898E /* XCRemoteSwiftPackageReference "Expression" */;
